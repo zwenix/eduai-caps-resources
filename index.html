@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduBridge SA — CAPS Resources</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #1a7c4f;
+      --green-light: #25a96a;
+      --green-pale:  #e8f7f0;
+      --gold:        #e8a020;
+      --gold-light:  #fdf3e0;
+      --navy:        #0f2340;
+      --navy-mid:    #1a3a5c;
+      --white:       #ffffff;
+      --off-white:   #f9faf7;
+      --text:        #1c2b1e;
+      --muted:       #6b7c6e;
+      --border:      #d4e4d9;
+      --radius:      12px;
+      --shadow:      0 4px 24px rgba(15,35,64,0.10);
+      --shadow-lg:   0 12px 48px rgba(15,35,64,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off-white);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ───────────────────────────────────────────── */
+    .hero {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(26,124,79,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(232,160,32,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 72px 32px 64px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232,160,32,0.15);
+      border: 1px solid rgba(232,160,32,0.4);
+      color: var(--gold);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: var(--green-light); }
+
+    .hero p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--green-light);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--green); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,169,106,0.4); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); }
+
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 180px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .stat-card .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green-light);
+      line-height: 1;
+    }
+
+    .stat-card .label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── SA FLAG STRIPE ─────────────────────────────────── */
+    .flag-stripe {
+      height: 5px;
+      background: linear-gradient(90deg,
+        #007A4D 0% 25%,
+        #FFB81C 25% 37.5%,
+        #FFFFFF 37.5% 50%,
+        #DE3831 50% 62.5%,
+        #002395 62.5% 75%,
+        #000000 75% 100%
+      );
+    }
+
+    /* ── SEARCH BAR ─────────────────────────────────────── */
+    .search-section {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(15,35,64,0.06);
+    }
+
+    .search-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+    }
+
+    #search {
+      width: 100%;
+      padding: 12px 16px 12px 44px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--off-white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    #search:focus { border-color: var(--green-light); background: var(--white); }
+    #search::placeholder { color: var(--muted); }
+
+    .filter-select {
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--off-white);
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .filter-select:focus { border-color: var(--green-light); }
+
+    /* ── MAIN CONTENT ───────────────────────────────────── */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .count-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: var(--green-pale);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    /* ── PHASE TABS ─────────────────────────────────────── */
+    .phase-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .phase-tab {
+      padding: 9px 20px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .phase-tab:hover { border-color: var(--green-light); color: var(--green); }
+
+    .phase-tab.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: var(--white);
+    }
+
+    /* ── RESOURCE GRID ──────────────────────────────────── */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .resource-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all 0.22s ease;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.4s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .resource-card:hover {
+      border-color: var(--green-light);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+
+    .resource-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--green-light));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .resource-card:hover::before { opacity: 1; }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .card-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .type-lesson    { background: #e8f5e9; }
+    .type-worksheet { background: #e3f2fd; }
+    .type-assessment{ background: #fff3e0; }
+    .type-homework  { background: #fce4ec; }
+    .type-report    { background: #f3e5f5; }
+    .type-default   { background: var(--green-pale); }
+
+    .card-grade-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: var(--navy);
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .card-subject {
+      font-size: 0.83rem;
+      color: var(--green);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 10px;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .meta-tag {
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .card-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 7px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .card-btn-view {
+      background: var(--green-pale);
+      color: var(--green);
+    }
+    .card-btn-view:hover { background: var(--green); color: var(--white); }
+
+    .card-btn-download {
+      background: var(--off-white);
+      color: var(--navy-mid);
+      border: 1.5px solid var(--border);
+    }
+    .card-btn-download:hover { border-color: var(--navy); background: var(--navy); color: var(--white); }
+
+    /* ── EMPTY STATE ────────────────────────────────────── */
+    .empty-state {
+      text-align: center;
+      padding: 80px 32px;
+      grid-column: 1 / -1;
+    }
+
+    .empty-state .icon { font-size: 3rem; margin-bottom: 16px; }
+    .empty-state h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 8px; }
+    .empty-state p  { color: var(--muted); font-size: 0.95rem; }
+
+    /* ── CONTRIBUTE BANNER ──────────────────────────────── */
+    .contribute-banner {
+      margin-top: 64px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: 16px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contribute-banner::after {
+      content: '📚';
+      position: absolute;
+      right: 180px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 5rem;
+      opacity: 0.08;
+    }
+
+    .contribute-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .contribute-banner p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer {
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* ── PDF MODAL ───────────────────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15,35,64,0.75);
+      z-index: 1000;
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--white);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 900px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .modal-close {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--off-white);
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+    .modal-body {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .modal-body iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 600px;
+      border: none;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: row; }
+      .stat-card { flex: 1; }
+      .contribute-banner { grid-template-columns: 1fr; }
+      .contribute-banner::after { display: none; }
+      .search-inner { flex-direction: column; }
+      .filter-select { width: 100%; }
+      .main { padding: 32px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">CAPS Aligned · Open Source · Free Forever</div>
+        <h1>Learning resources for <span>every child</span> in South Africa</h1>
+        <p>A free, open library of CAPS-aligned educational materials for Grades R–12. Built for teachers, learners, and parents in rural and disadvantaged communities.</p>
+        <div class="hero-actions">
+          <a href="#resources" class="btn btn-primary">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            Browse Resources
+          </a>
+          <a href="https://github.com/YOUR-ORG/caps-resources" class="btn btn-outline" target="_blank" rel="noopener">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="num" id="total-count">0</div>
+          <div class="label">Resources</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">13</div>
+          <div class="label">Grades</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">11</div>
+          <div class="label">Languages</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flag-stripe"></div>
+
+  <!-- SEARCH -->
+  <div class="search-section">
+    <div class="search-inner">
+      <div class="search-wrap">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" id="search" placeholder="Search by subject, grade, topic…" autocomplete="off" />
+      </div>
+      <select class="filter-select" id="filter-type">
+        <option value="">All Types</option>
+        <option value="lesson-plan">Lesson Plans</option>
+        <option value="worksheet">Worksheets</option>
+        <option value="assessment">Assessments</option>
+        <option value="homework">Homework</option>
+        <option value="report">Report Templates</option>
+      </select>
+      <select class="filter-select" id="filter-term">
+        <option value="">All Terms</option>
+        <option value="term1">Term 1</option>
+        <option value="term2">Term 2</option>
+        <option value="term3">Term 3</option>
+        <option value="term4">Term 4</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="main" id="resources">
+    <div class="section-header">
+      <h2 class="section-title">Browse Resources</h2>
+      <span class="count-badge" id="visible-count">Loading…</span>
+    </div>
+
+    <!-- Phase Tabs -->
+    <div class="phase-tabs">
+      <button class="phase-tab active" data-phase="all">All Phases</button>
+      <button class="phase-tab" data-phase="foundation">Foundation (R–3)</button>
+      <button class="phase-tab" data-phase="intermediate">Intermediate (4–6)</button>
+      <button class="phase-tab" data-phase="senior">Senior (7–9)</button>
+      <button class="phase-tab" data-phase="fet">FET (10–12)</button>
+    </div>
+
+    <!-- Resource Grid -->
+    <div class="resource-grid" id="resource-grid"></div>
+
+    <!-- Contribute Banner -->
+    <div class="contribute-banner">
+      <div>
+        <h2>Have resources to share?</h2>
+        <p>Help build the largest free, CAPS-aligned resource library in South Africa. Teachers, schools, and education NGOs can contribute lesson plans, worksheets, assessments, and more.</p>
+      </div>
+      <a href="https://github.com/YOUR-ORG/caps-resources/blob/main/.github/CONTRIBUTING.md"
+         class="btn btn-primary" target="_blank" rel="noopener" style="white-space: nowrap;">
+        Contribute a Resource →
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      Built with ❤️ for South African learners ·
+      <a href="https://github.com/YOUR-ORG/caps-resources" target="_blank">GitHub</a> ·
+      <a href="https://github.com/YOUR-ORG/caps-resources/blob/main/.github/CONTRIBUTING.md" target="_blank">Contribute</a> ·
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+    </p>
+    <p style="margin-top: 8px; font-size: 0.8rem;">
+      All resources are aligned to the South African CAPS curriculum · <em>Every child deserves a great education.</em>
+    </p>
+  </footer>
+
+  <!-- PDF MODAL -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title" id="modal-title">Resource Viewer</span>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <iframe id="modal-iframe" title="PDF Viewer"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ─────────────────────────────────────────────────────────────
+    // RESOURCE DATA
+    // Replace / extend this array with your actual GitHub Pages URLs
+    // Format: https://YOUR-ORG.github.io/caps-resources/grades/...
+    // ─────────────────────────────────────────────────────────────
+    const BASE = 'https://YOUR-ORG.github.io/caps-resources';
+
+    const RESOURCES = [
+      // ── FOUNDATION PHASE ──────────────────────────────────────
+      {
+        id: 1,
+        title: 'Counting to 10 — Introduction',
+        subject: 'Mathematics',
+        grade: 'Grade R',
+        gradeCode: 'grR',
+        phase: 'foundation',
+        type: 'lesson-plan',
+        term: 'term1',
+        language: 'English',
+        url: `${BASE}/grades/foundation-phase/grade-r/mathematics/grR-mathematics-lesson-plan-term1-counting-to-10.pdf`,
+      },
+      {
+        id: 2,
+        title: 'Colours and Shapes Worksheet',
+        subject: 'Life Skills',
+        grade: 'Grade R',
+        gradeCode: 'grR',
+        phase: 'foundation',
+        type: 'worksheet',
+        term: 'term1',
+        language: 'English',
+        url: `${BASE}/grades/foundation-phase/grade-r/life-skills/grR-life-skills-worksheet-term1-colours-and-shapes.pdf`,
+      },
+      {
+        id: 3,
+        title: 'Phonics — Letter Sounds A to E',
+        subject: 'Home Language',
+        grade: 'Grade 1',
+        gradeCode: 'gr1',
+        phase: 'foundation',
+        type: 'worksheet',
+        term: 'term1',
+        language: 'English',
+        url: `${BASE}/grades/foundation-phase/grade-1/home-language/gr1-home-language-worksheet-term1-phonics-a-to-e.pdf`,
+      },
+      {
+        id: 4,
+        title: 'Addition and Subtraction to 20',
+        subject: 'Mathematics',
+        grade: 'Grade 2',
+        gradeCode: 'gr2',
+        phase: 'foundation',
+        type: 'assessment',
+        term: 'term2',
+        language: 'English',
+        url: `${BASE}/grades/foundation-phase/grade-2/mathematics/gr2-mathematics-assessment-term2-addition-subtraction.pdf`,
+      },
+      // ── INTERMEDIATE PHASE ────────────────────────────────────
+      {
+        id: 5,
+        title: 'Whole Numbers — Place Value',
+        subject: 'Mathematics',
+        grade: 'Grade 4',
+        gradeCode: 'gr4',
+        phase: 'intermediate',
+        type: 'lesson-plan',
+        term: 'term1',
+        language: 'English',
+        url: `${BASE}/grades/intermediate-phase/grade-4/mathematics/gr4-mathematics-lesson-plan-term1-whole-numbers-place-value.pdf`,
+      },
+      {
+        id: 6,
+        title: 'Plants and their Parts',
+        subject: 'Natural Sciences & Technology',
+        grade: 'Grade 5',
+        gradeCode: 'gr5',
+        phase: 'intermediate',
+        type: 'worksheet',
+        term: 'term2',
+        language: 'English',
+        url: `${BASE}/grades/intermediate-phase/grade-5/natural-sciences-and-technology/gr5-nst-worksheet-term2-plants-and-parts.pdf`,
+      },
+      {
+        id: 7,
+        title: 'Reading Comprehension — Term 3',
+        subject: 'English FAL',
+        grade: 'Grade 6',
+        gradeCode: 'gr6',
+        phase: 'intermediate',
+        type: 'assessment',
+        term: 'term3',
+        language: 'English',
+        url: `${BASE}/grades/intermediate-phase/grade-6/english-fal/gr6-english-fal-assessment-term3-reading-comprehension.pdf`,
+      },
+      // ── SENIOR PHASE ─────────────────────────────────────────
+      {
+        id: 8,
+        title: 'Geometry of 2D Shapes',
+        subject: 'Mathematics',
+        grade: 'Grade 7',
+        gradeCode: 'gr7',
+        phase: 'senior',
+        type: 'lesson-plan',
+        term: 'term2',
+        language: 'English',
+        url: `${BASE}/grades/senior-phase/grade-7/mathematics/gr7-mathematics-lesson-plan-term2-geometry-2d-shapes.pdf`,
+      },
+      {
+        id: 9,
+        title: 'The Solar System',
+        subject: 'Natural Sciences',
+        grade: 'Grade 8',
+        gradeCode: 'gr8',
+        phase: 'senior',
+        type: 'worksheet',
+        term: 'term1',
+        language: 'English',
+        url: `${BASE}/grades/senior-phase/grade-8/natural-sciences/gr8-natural-sciences-worksheet-term1-solar-system.pdf`,
+      },
+      {
+        id: 10,
+        title: 'World War II — Essay Assessment',
+        subject: 'Social Sciences (History)',
+        grade: 'Grade 9',
+        gradeCode: 'gr9',
+        phase: 'senior',
+        type: 'assessment',
+        term: 'term3',
+        language: 'English',
+        url: `${BASE}/grades/senior-phase/grade-9/social-sciences/gr9-social-sciences-assessment-term3-ww2-essay.pdf`,
+      },
+      // ── FET PHASE ────────────────────────────────────────────
+      {
+        id: 11,
+        title: 'Waves, Sound and Light',
+        subject: 'Physical Sciences',
+        grade: 'Grade 10',
+        gradeCode: 'gr10',
+        phase: 'fet',
+        type: 'lesson-plan',
+        term: 'term2',
+        language: 'English',
+        url: `${BASE}/grades/fet-phase/grade-10/physical-sciences/gr10-physical-sciences-lesson-plan-term2-waves-sound-light.pdf`,
+      },
+      {
+        id: 12,
+        title: 'Trial Examination Paper',
+        subject: 'Mathematics',
+        grade: 'Grade 12',
+        gradeCode: 'gr12',
+        phase: 'fet',
+        type: 'assessment',
+        term: 'term3',
+        language: 'English',
+        url: `${BASE}/grades/fet-phase/grade-12/mathematics/gr12-mathematics-assessment-term3-trial-exam.pdf`,
+      },
+      {
+        id: 13,
+        title: 'Term 1 Progress Report Template',
+        subject: 'All Subjects',
+        grade: 'Grade 10–12',
+        gradeCode: 'gr10',
+        phase: 'fet',
+        type: 'report',
+        term: 'term1',
+        language: 'English',
+        url: `${BASE}/teacher-resources/report-comment-banks/gr10-12-report-template-term1.pdf`,
+      },
+      {
+        id: 14,
+        title: 'DNA and Genetics',
+        subject: 'Life Sciences',
+        grade: 'Grade 11',
+        gradeCode: 'gr11',
+        phase: 'fet',
+        type: 'worksheet',
+        term: 'term2',
+        language: 'English',
+        url: `${BASE}/grades/fet-phase/grade-11/life-sciences/gr11-life-sciences-worksheet-term2-dna-genetics.pdf`,
+      },
+    ];
+
+    const TYPE_ICONS = {
+      'lesson-plan':  { emoji: '📋', cls: 'type-lesson' },
+      'worksheet':    { emoji: '📝', cls: 'type-worksheet' },
+      'assessment':   { emoji: '📊', cls: 'type-assessment' },
+      'homework':     { emoji: '🏠', cls: 'type-homework' },
+      'report':       { emoji: '📄', cls: 'type-report' },
+    };
+
+    const TYPE_LABELS = {
+      'lesson-plan':  'Lesson Plan',
+      'worksheet':    'Worksheet',
+      'assessment':   'Assessment',
+      'homework':     'Homework',
+      'report':       'Report Template',
+    };
+
+    // ── RENDER ───────────────────────────────────────────────────
+    let activePhase = 'all';
+
+    function renderCards(items) {
+      const grid = document.getElementById('resource-grid');
+      document.getElementById('visible-count').textContent = `${items.length} resource${items.length !== 1 ? 's' : ''}`;
+      document.getElementById('total-count').textContent = RESOURCES.length;
+
+      if (items.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <div class="icon">🔍</div>
+            <h3>No resources found</h3>
+            <p>Try adjusting your search or filters, or <a href="https://github.com/YOUR-ORG/caps-resources" target="_blank">contribute a resource on GitHub</a>.</p>
+          </div>`;
+        return;
+      }
+
+      grid.innerHTML = items.map((r, i) => {
+        const icon = TYPE_ICONS[r.type] || { emoji: '📁', cls: 'type-default' };
+        const typeLabel = TYPE_LABELS[r.type] || r.type;
+        return `
+          <article class="resource-card" style="animation-delay:${i * 0.05}s">
+            <div class="card-top">
+              <div class="card-icon ${icon.cls}">${icon.emoji}</div>
+              <span class="card-grade-badge">${r.gradeCode.toUpperCase()}</span>
+            </div>
+            <div class="card-subject">${r.subject}</div>
+            <h3 class="card-title">${r.title}</h3>
+            <div class="card-meta">
+              <span class="meta-tag">${r.grade}</span>
+              <span class="meta-tag">${typeLabel}</span>
+              <span class="meta-tag">${r.term.replace('term', 'Term ')}</span>
+              <span class="meta-tag">${r.language}</span>
+            </div>
+            <div class="card-actions">
+              <button class="card-btn card-btn-view" onclick="openModal('${r.url}', '${r.title.replace(/'/g, "\\'")}')">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                View
+              </button>
+              <a class="card-btn card-btn-download" href="${r.url}" download target="_blank" rel="noopener">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </article>`;
+      }).join('');
+    }
+
+    // ── FILTER ───────────────────────────────────────────────────
+    function applyFilters() {
+      const q    = document.getElementById('search').value.toLowerCase().trim();
+      const type = document.getElementById('filter-type').value;
+      const term = document.getElementById('filter-term').value;
+
+      const filtered = RESOURCES.filter(r => {
+        const matchPhase = activePhase === 'all' || r.phase === activePhase;
+        const matchType  = !type || r.type === type;
+        const matchTerm  = !term || r.term === term;
+        const matchQ     = !q || [r.title, r.subject, r.grade, r.language].some(v => v.toLowerCase().includes(q));
+        return matchPhase && matchType && matchTerm && matchQ;
+      });
+
+      renderCards(filtered);
+    }
+
+    // ── PHASE TABS ───────────────────────────────────────────────
+    document.querySelectorAll('.phase-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.phase-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        activePhase = tab.dataset.phase;
+        applyFilters();
+      });
+    });
+
+    // ── SEARCH & FILTER EVENTS ───────────────────────────────────
+    document.getElementById('search').addEventListener('input', applyFilters);
+    document.getElementById('filter-type').addEventListener('change', applyFilters);
+    document.getElementById('filter-term').addEventListener('change', applyFilters);
+
+    // ── MODAL ────────────────────────────────────────────────────
+    function openModal(url, title) {
+      document.getElementById('modal-iframe').src = url;
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+      document.getElementById('modal-iframe').src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal').addEventListener('click', e => {
+      if (e.target === document.getElementById('modal')) closeModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // ── INIT ─────────────────────────────────────────────────────
+    renderCards(RESOURCES);
+  </script>
+</body>
+</html>
