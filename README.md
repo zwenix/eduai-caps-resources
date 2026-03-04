@@ -1,4 +1,4 @@
-# 📚 EduBridge SA — CAPS Resources Repository
+# 📚 EduAI Companion SA — CAPS Resources Repository
 
 > Open-source educational resource library for South African learners in Grades R–12.  
 > All content is aligned to the **Curriculum and Assessment Policy Statement (CAPS)**.
