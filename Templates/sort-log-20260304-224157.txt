@@ -1,0 +1,3 @@
+EduAI Companion PDF Sort Log — Wed Mar  4 22:41:57 SAST 2026
+========================================
+SKIPPED (exists): foundation-phase-star-reward-chart.pdf → /c/EduAICompanion_CAPS_RESOURCES/resources-by-type/worksheets
