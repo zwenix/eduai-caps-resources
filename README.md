@@ -8,7 +8,7 @@
 ## 🗂️ Repository Structure
 
 ```
-caps-resources/
+eduai-caps-resources/
 │
 ├── README.md
 ├── LICENSE
@@ -155,7 +155,7 @@ Topic:          Geometry of 2D Shapes
 CAPS Reference: Page 112, Senior Phase CAPS Document
 Resource Type:  Lesson Plan
 Language:       English
-Author:         [Your name or "EduBridge SA Community"]
+Author:         [Your name or "EduAI Companion SA Community"]
 Version:        1.0
 Last Updated:   YYYY-MM-DD
 ```
@@ -168,8 +168,8 @@ Last Updated:   YYYY-MM-DD
 ```bash
 # 1. Fork this repository
 # 2. Clone your fork
-git clone https://github.com/YOUR-USERNAME/caps-resources.git
-cd caps-resources
+git clone https://github.com/zwenix./eduai-caps-resources.git
+cd eduai-caps-resources
 
 # 3. Create a branch
 git checkout -b add/gr8-mathematics-term1-integers
@@ -199,15 +199,15 @@ git push origin add/gr8-mathematics-term1-integers
 Once merged, every PDF is automatically available at:
 
 ```
-https://your-org.github.io/caps-resources/grades/[phase]/[grade]/[subject]/[filename].pdf
+https://zwenix.github.io/eduai-caps-resources/grades/[phase]/[grade]/[subject]/[filename].pdf
 ```
 
 **Example:**
 ```
-https://edubridge-sa.github.io/caps-resources/grades/senior-phase/grade-8/mathematics/gr8-mathematics-lesson-plan-term1-integers.pdf
+https://zwenix.github.io/eduai-caps-resources/grades/senior-phase/grade-8/mathematics/gr8-mathematics-lesson-plan-term1-integers.pdf
 ```
 
-This URL can be used directly in the EduBridge SA app to:
+This URL can be used directly in the EduAI Companion SA app to:
 - **Display** the PDF inline using an embedded viewer
 - **Download** the file directly
 - **Reference** it in AI-generated personalised learning plans
@@ -233,9 +233,9 @@ All resources in this repository are released under the **Creative Commons Attri
 
 ---
 
-## 🌍 About EduBridge SA
+## 🌍 About EduAI Companion SA
 
-EduBridge SA is an open-source educational platform built to give every South African learner — regardless of location or socioeconomic background — access to high-quality, personalised, CAPS-aligned education.
+EduAI Companion SA is an open-source educational platform built to give every South African learner — regardless of location or socioeconomic background — access to high-quality, personalised, CAPS-aligned education.
 
 > *"Every child deserves a great education."*
-# eduai-caps-resources
+# eduai-eduai-caps-resources
