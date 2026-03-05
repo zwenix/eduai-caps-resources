@@ -1,4 +1,7 @@
-# 📚 EduAI Companion SA — CAPS Resources Repository
+<a href="https://ibb.co/Z6tYMbB1"><img src="https://i.ibb.co/6RV1WqHJ/eduaicompanion-logo2-preview-1772467621580-2-preview-1772473153046-x128.jpg" alt="eduaicompanion logo2 preview 1772467621580 2 preview 1772473153046 x128" border="0"></a>
+
+# 📚 EduAI.Companion SA — CAPS Resources Repository
+#  Developed & Owned by: Zwelakhe Msuthu - All rights reserved Solely by Owner & Developer 2026 Registered Trademark ® 
 
 > Open-source educational resource library for South African learners in Grades R–12.  
 > All content is aligned to the **Curriculum and Assessment Policy Statement (CAPS)**.
